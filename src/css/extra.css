@@ -1,10 +1,64 @@
+/* ---------- PALETTE ----------*/
+:root {
+  /* Primary color (header, sidebar, etc.) */
+  --md-primary-fg-color: #3c6e71;
+  --md-primary-fg-color--light: #3c6e71;
+  --md-primary-fg-color--dark: #3c6e71;
+
+  /* Text/icons displayed on the primary color */
+  --md-primary-bg-color: #ffffff;
+  --md-primary-bg-color--light: rgba(255, 255, 255, 0.7);
+
+  /* Accent color (interactive elements: hovered links, buttons, etc.) */
+  /* Change these to whatever accent you want */
+  --md-accent-fg-color: #284b63;
+  --md-accent-fg-color--transparent: rgba(45, 212, 191, 0.10);
+  --md-accent-bg-color: #ffffff;
+  --md-accent-bg-color--light: rgba(255, 255, 255, 0.7);
+}
+
+/* ---------- FOOTER (bg + text) ----------*/
+[data-md-color-scheme="default"] {
+  --md-footer-bg-color: #353535;
+  --md-footer-bg-color--dark: #353535;
+
+  --md-footer-fg-color: #ffffff;
+  --md-footer-fg-color--light: rgba(255, 255, 255, 0.75);
+  --md-footer-fg-color--lighter: rgba(255, 255, 255, 0.45);
+}
+
+/* Optional: footer links */
+.md-footer a {
+  color: var(--md-accent-fg-color);
+}
+
+/* ----- Logo ---------*/
+.md-header__button.md-logo {
+  padding: 0;
+  margin: 0;
+}
+
+.md-header__button.md-logo img,
+.md-header__button.md-logo svg {
+  height: 2.2rem;  /* adjust */
+  width: 2.2rem;   /* adjust */
+}
+
+/* ----- Top header ---------*/
+.md-header__inner {
+  padding-top: 0.5rem; /* adjust */
+  padding-bottom: 0.5rem;
+}
+
+/*------------- Bottom spacing -----------------*/
+
 /* This targets the main container of the markdown content */
 article.md-content__inner {
-    margin-bottom: 2rem !important;
-    padding-bottom: 2rem !important;
+  margin-bottom: 2rem !important;
+  padding-bottom: 2rem !important;
 }
 
 /* Optional: If you want space AFTER the "Next/Previous" buttons too */
 .md-footer-nav {
-    margin-bottom: 3rem;
+  margin-bottom: 3rem;
 }

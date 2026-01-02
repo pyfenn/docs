@@ -5,6 +5,8 @@ site_author: PyFenn
 docs_dir: src
 
 theme:
+  logo: images/logo.png
+  favicon: images/logo.png
   name: material
   custom_dir: overrides
   language: en
@@ -17,34 +19,26 @@ theme:
     - toc.integrate   # right-hand in-page TOC
 
   palette:
-    - scheme: default
-      primary: teal
-      accent: teal
-      toggle:
-        icon: material/weather-night
-        name: Switch to dark mode
-    - scheme: slate
-      primary: teal
-      accent: teal
-      toggle:
-        icon: material/weather-sunny
-        name: Switch to light mode
+    scheme: default
+    primary: custom
+    accent: custom
 
 nav:
   - Home: index.md
   - Quickstart: quickstart.md
   - User Guide:
-      - Logger: user_guide/logger.md
-      - Wandb: user_guide/wandb.md
-      - Notifications:
-        - Introduction: user_guide/notifications/intro.md
-        - Discord: user_guide/notifications/discord.md
-        - Telegram: user_guide/notifications/telegram.md
-        - Email: user_guide/notifications/email.md
-        - Slack: user_guide/notifications/slack.md
+    - Logging:
+      - Local: user_guide/logging/local.md
+      - Wandb: user_guide/logging/wandb.md
+    - Notifications:
+      - Basic Usage: user_guide/notifications/basic_usage.md
+      - Discord: user_guide/notifications/discord.md
+      - Telegram: user_guide/notifications/telegram.md
+      - Email: user_guide/notifications/email.md
+      - Slack: user_guide/notifications/slack.md
   - CLI:
     - Pull: CLI/pull.md
-  - Contribution Guide: contributing.md
+  - Contributing: contributing.md
 
 markdown_extensions:
   - admonition

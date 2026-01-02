@@ -1,14 +1,13 @@
-# Notifications
+# Basic Usage
 
 Monitoring long-running machine learning experiments is a challenge when you aren't glued to a terminal. **Fenn Notifications** provides a centralized, lightweight solution to bridge the gap between your training scripts and your communication tools. By abstracting various service APIs into a single, unified interface, you can ensure that critical status updates—from successful model checkpoints to unexpected crashes—reach you instantly on your preferred platforms.
 
 The system is built with a "send-and-forget" philosophy. It handles the complexities of environment variables, API requests, and network retries in the background, allowing you to focus entirely on your model development.
 
-## Basic Usage
+### Configure Environment
 
 To begin, install the package and define your credentials in a `.env` file at the root of your project. Each service automatically looks for its specific environment variables, keeping your Python code clean and free of hard-coded secrets.
 
-### 1. Configure Environment
 
 ```bash
 DISCORD_WEBHOOK="https://discord.com/api/webhooks/..."
@@ -17,7 +16,7 @@ TELEGRAM_CHAT_ID="12345678"
 
 ```
 
-### 2. Implementation
+### Implementation
 
 The following snippet demonstrates how to initialize the notifier and broadcast a message across multiple platforms simultaneously.
 
