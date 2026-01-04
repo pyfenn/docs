@@ -1,6 +1,6 @@
 # Local Logging
 
-FENN streamlines output management by automatically intercepting standard `print` calls. It generates clean, timestamped logs on disk while preserving real-time output in the terminal for interactive monitoring.
+fenn streamlines output management by automatically intercepting standard `print` calls. It generates clean, timestamped logs on disk while preserving real-time output in the terminal for interactive monitoring.
 
 ### Initialization
 

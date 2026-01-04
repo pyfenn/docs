@@ -1,7 +1,7 @@
 
 # Weights & Biases
 
-FENN provides native integration with [Weights & Biases (W&B)](https://wandb.ai) for comprehensive experiment monitoring. This integration automatically tracks metrics, hyperparameters, system stats, and model artifacts without requiring boilerplate code in your training scripts.
+fenn provides native integration with [Weights & Biases (W&B)](https://wandb.ai) for comprehensive experiment monitoring. This integration automatically tracks metrics, hyperparameters, system stats, and model artifacts without requiring boilerplate code in your training scripts.
 
 ## Prerequisites
 
@@ -16,14 +16,14 @@ To enable tracking, you must first authenticate the client:
 Enable the W&B integration by configuring your environment credentials and project settings.
 
 ### Credentials (`.env`)
-Store your API key securely in the `.env` file at the project root. FENN detects this variable automatically to authenticate the session.
+Store your API key securely in the `.env` file at the project root. fenn detects this variable automatically to authenticate the session.
 
 ```ini
 WANDB_API_KEY=your_api_key_here
 ```
 
 ### Project Settings (`fenn.yaml`)
-Add a `wandb` block to your `fenn.yaml` configuration. The presence of this section signals FENN to initialize the logger.
+Add a `wandb` block to your `fenn.yaml` configuration. The presence of this section signals fenn to initialize the logger.
 
 ```yaml
 wandb:
@@ -32,7 +32,7 @@ wandb:
 
 ## Execution
 
-Once configured, FENN manages the W&B lifecycle internally. When you execute your standard entry point:
+Once configured, fenn manages the W&B lifecycle internally. When you execute your standard entry point:
 
 ```bash
 python main.py

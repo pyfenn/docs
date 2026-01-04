@@ -1,8 +1,8 @@
-Welcome to **FENN** (Friendly Environment for Neural Networks), a lightweight Python framework designed to strip away the repetitive boilerplate of Machine Learning development.
+Welcome to **fenn** (Friendly Environment for Neural Networks), a lightweight Python framework designed to strip away the repetitive boilerplate of Machine Learning development.
 
 **Stop writing boilerplate. Start training.**
 
-FENN is a lightweight Python framework that automates the **boring stuff** in Machine Learning projects so you can focus on the model. It handles configuration parsing, logging setup, and experiment tracking in a minimal, opinionated way.
+fenn is a lightweight Python framework that automates the **boring stuff** in Machine Learning projects so you can focus on the model. It handles configuration parsing, logging setup, and experiment tracking in a minimal, opinionated way.
 
 ---
 

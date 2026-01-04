@@ -48,9 +48,9 @@ Fenn uses a decorator-based approach. The `@app.entrypoint` function receives an
 By default, Fenn looks for a file named `fenn.yaml`.
 
 ```python
-from fenn import FENN
+from fenn import Fenn
 
-app = FENN()
+app = Fenn()
 
 @app.entrypoint
 def main(args):
@@ -67,7 +67,7 @@ if __name__ == "__main__":
 If you want to use a specific configuration (e.g., for different models or environments), use `set_config_file()` before calling `run()`. This allows you to swap entire experiment setups instantly.
 
 ```python
-app = FENN()
+app = Fenn()
 # Point to a specific config file
 app.set_config_file("experiments/cnn_baseline.yaml")
 

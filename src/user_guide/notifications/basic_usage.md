@@ -33,6 +33,18 @@ notifier.notify("Training started: Experiment #42")
 
 ```
 
+or
+
+```python
+from fenn.notification import Notifier
+from fenn.notification.services import Telegram
+
+notifier = Notifier()
+notifier.add_service(Telegram)
+
+notifier.notify("Training started: Experiment #42")
+```
+
 ---
 
 ## Core Principles
