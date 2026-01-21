@@ -19,3 +19,13 @@ Add these to your `.env` file:
 TELEGRAM_BOT_TOKEN="YOUR_BOT_TOKEN"
 TELEGRAM_CHAT_ID="YOUR_CHAT_ID"
 ```
+
+## Sample Program
+
+```
+from fenn.notification.services.telegram import Telegram
+
+telegram = Telegram()
+
+resp = telegram.send_notification("Testing Telegram")
+```
