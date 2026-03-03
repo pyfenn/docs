@@ -45,12 +45,12 @@ The `Trainer` class is the main component for training deep learning models. It 
 Executes the complete training cycle.
 
 ```python
-def fit(train_loader, val_loader=None, val_epoch: int = 5, start_epoch: int = 0):
+def fit(train_loader, val_loader=None, start_epoch: int = 0):
     """
     Args:
         train_loader: DataLoader for training data
         val_loader: DataLoader for validation data (optional)
-        val_epoch: Validation frequency (every N epochs)
+        val_epoch: **(deprecated)** validation frequency argument is ignored; validation is run every epoch when provided
         start_epoch: Epoch to resume training from (for checkpoint resumption)
 
     Returns:
@@ -112,6 +112,32 @@ def load_checkpoint(checkpoint_path):
 If `early_stopping_patience` is set, training automatically stops when:
 - The validation loss doesn't improve for N consecutive epochs
 - Example: `early_stopping_patience=5` stops after 5 epochs without improvement
+
+The actual behaviour depends on whether a validation loader is provided and
+whether patience is configured:
+
+1. **No validation loader and no early stopping** (`val_loader=None`,
+    `early_stopping_patience=None`): the trainer simply runs for the full number
+    of epochs. This is the simplest mode and useful for quick experiments or
+    debugging.
+
+2. **No validation loader, but early stopping enabled**
+    (`early_stopping_patience` set): the trainer watches the *training* loss
+    instead. When the training loss fails to improve for the given number of
+    epochs the loop terminates. This is less common but can be used when
+    validation data is unavailable.
+
+3. **Validation loader supplied, but early stopping disabled**
+    (`early_stopping_patience=None`): the model will be evaluated on the
+    validation set at the end of each epoch and metrics will be printed, but
+    training will continue until the specified `epochs` are exhausted. This is
+    handy when you want monitoring without interrupting training.
+
+4. **Validation loader supplied and early stopping enabled**
+    (`early_stopping_patience` set to an integer): validation loss is checked at
+    every epoch, and training stops once the loss has failed to improve for the
+    given number of epochs. The trainer also keeps track of the best model (the
+    one with lowest validation loss) and can save it if `save_best=True`.
 
 ```python
     trainer = Trainer(
@@ -204,7 +230,7 @@ trainer = Trainer(
 trained_model = trainer.fit(
     train_loader=train_dataloader,
     val_loader=val_dataloader,
-    val_epoch=5  # Validates every 5 epochs
+    # validation occurs every epoch when a validation loader is supplied
 )
 
 # Prediction
