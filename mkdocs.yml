@@ -38,6 +38,8 @@ nav:
       - Slack: user_guide/notifications/slack.md
     - Neural Networks:
       - Trainer: user_guide/neural_networks/trainer.md
+    - Data Processing:
+      - Tabular: user_guide/data_processing/tabular.md
   - CLI:
     - Pull: CLI/pull.md
   - Contributing: contributing.md
