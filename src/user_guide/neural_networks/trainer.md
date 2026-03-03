@@ -1,10 +1,10 @@
-# Classe Trainer
+# Trainer Class
 
-## Panoramica
+## Overview
 
-La classe `Trainer` è il componente principale per l'addestramento di modelli di deep learning. Fornisce un'interfaccia completa per gestire il ciclo di training, inclusi checkpointing, early stopping, validazione e predizione.
+The `Trainer` class is the main component for training deep learning models. It provides a comprehensive interface for managing the training cycle, including checkpointing, early stopping, validation, and prediction.
 
-## Initializzazione
+## Initialization
 
 ```python
     Trainer(
@@ -22,96 +22,96 @@ La classe `Trainer` è il componente principale per l'addestramento di modelli d
     )
 ```
 
-### Parametri
+### Parameters
 
-| Parametro | Tipo | Descrizione | Default |
+| Parameter | Type | Description | Default |
 |-----------|------|-------------|---------|
-| `model` | torch.nn.Module | Il modello di deep learning da addestrare | Obbligatorio |
-| `loss_fn` | torch.nn loss | Funzione di loss da utilizzare | Obbligatorio |
-| `optim` | torch.optim Optimizer | Ottimizzatore per l'aggiornamento dei pesi | Obbligatorio |
-| `epochs` | int | Numero di epoche per l'addestramento | Obbligatorio |
-| `num_classes` | int | Numero di classi nel problema di classificazione | Obbligatorio |
-| `device` | str | Dispositivo su cui eseguire il training (cpu, cuda, mps) | "cpu" |
-| `checkpoint_dir` | Path o str | Directory dove salvare i checkpoint | None |
-| `checkpoint_epochs` | int o list | Frequenza o liste di epoche per il salvataggio dei checkpoint | None |
-| `checkpoint_name` | str | Nome base per i file di checkpoint | "checkpoint" |
-| `save_best` | bool | Se True, salva il miglior modello durante il training | False |
-| `early_stopping_patience` | int | Numero di epoche senza miglioramento prima di fermare il training | None |
+| `model` | torch.nn.Module | The deep learning model to train | Required |
+| `loss_fn` | torch.nn loss | Loss function to use | Required |
+| `optim` | torch.optim Optimizer | Optimizer for weight updates | Required |
+| `epochs` | int | Number of training epochs | Required |
+| `num_classes` | int | Number of classes in the classification problem | Required |
+| `device` | str | Device to run training on (cpu, cuda, mps) | "cpu" |
+| `checkpoint_dir` | Path or str | Directory to save checkpoints | None |
+| `checkpoint_epochs` | int or list | Frequency or list of epochs for checkpoint saving | None |
+| `checkpoint_name` | str | Base name for checkpoint files | "checkpoint" |
+| `save_best` | bool | If True, saves the best model during training | False |
+| `early_stopping_patience` | int | Number of epochs without improvement before stopping training | None |
 
-## Funzionalità Principali
+## Main Features
 
-### 1. Addestramento: `fit()`
+### 1. Training: `fit()`
 
-Esegue il ciclo completo di training.
+Executes the complete training cycle.
 
 ```python
 def fit(train_loader, val_loader=None, val_epoch: int = 5, start_epoch: int = 0):
     """
     Args:
-        train_loader: DataLoader per i dati di training
-        val_loader: DataLoader per i dati di validazione (opzionale)
-        val_epoch: Frequenza di validazione (ogni N epoche)
-        start_epoch: Epoca da cui riprendere il training (per ripresa da checkpoint)
+        train_loader: DataLoader for training data
+        val_loader: DataLoader for validation data (optional)
+        val_epoch: Validation frequency (every N epochs)
+        start_epoch: Epoch to resume training from (for checkpoint resumption)
 
     Returns:
-        model: Il modello addestrato
+        model: The trained model
     """
 ```
 
-**Caratteristiche:**
+**Features:**
 
-- Training loop con backward pass e aggiornamento pesi
-- Calcolo della loss media per epoca
-- Validazione periodica con metriche (accuracy, precision, recall, F1)
-- Checkpointing automatico
-- Early stopping automatico
+- Training loop with backward pass and weight updates
+- Average loss calculation per epoch
+- Periodic validation with metrics (accuracy, precision, recall, F1)
+- Automatic checkpointing
+- Automatic early stopping
 
-### 2. Predizione: `predict()`
+### 2. Prediction: `predict()`
 
-Esegue predizioni su un dataset.
+Performs predictions on a dataset.
 
 ```python
 def predict(data_loader):
     """
     Args:
-        data_loader: DataLoader contenente i dati da predire
+        data_loader: DataLoader containing data to predict
 
     Returns:
-        predictions: Lista di predizioni
+        predictions: List of predictions
     """
 ```
 
-**Automaticamente seleziona:**
-- Predizioni binarie (sigmoid) per 2 classi
-- Predizioni multiclassi (argmax) per più classi
+**Automatically selects:**
+- Binary predictions (sigmoid) for 2 classes
+- Multiclass predictions (argmax) for more classes
 
-### 3. Gestione Checkpoint: `load_checkpoint()`
+### 3. Checkpoint Management: `load_checkpoint()`
 
-Carica un checkpoint salvato per riprendere il training.
+Loads a saved checkpoint to resume training.
 
 ```python
 def load_checkpoint(checkpoint_path):
     """
     Args:
-        checkpoint_path: Path al file di checkpoint
+        checkpoint_path: Path to the checkpoint file
 
     Returns:
-        epoch: L'epoca da cui riprendere il training
+        epoch: The epoch to resume training from
 
-    Carica:
-        - Pesi del modello
-        - Stato dell'ottimizzatore
-        - Loss migliore fino a quel momento
+    Loads:
+        - Model weights
+        - Optimizer state
+        - Best loss up to that point
     """
 ```
 
-## Funzionalità Avanzate
+## Advanced Features
 
 ### Early Stopping
 
-Se `early_stopping_patience` è impostato, il training si ferma automaticamente quando:
-- La validation loss non migliora per N epoche consecutive
-- Esempio: `early_stopping_patience=5` ferma dopo 5 epoche senza miglioramento
+If `early_stopping_patience` is set, training automatically stops when:
+- The validation loss doesn't improve for N consecutive epochs
+- Example: `early_stopping_patience=5` stops after 5 epochs without improvement
 
 ```python
     trainer = Trainer(
@@ -120,28 +120,28 @@ Se `early_stopping_patience` è impostato, il training si ferma automaticamente 
         optim=optimizer,
         epochs=100,
         num_classes=2,
-        early_stopping_patience=5  # Ferma se non migliora per 5 epoche
+        early_stopping_patience=5  # Stops if no improvement for 5 epochs
     )
 ```
 
 ### Checkpointing
 
-Il trainer supporta due strategie di checkpoint:
+The trainer supports two checkpoint strategies:
 
-#### 1. Checkpoint Periodico
-Salva ogni N epoche:
+#### 1. Periodic Checkpointing
+Saves every N epochs:
 
 ```python
     trainer = Trainer(
         ...,
         checkpoint_dir="checkpoints",
-        checkpoint_epochs=10,  # Salva ogni 10 epoche
+        checkpoint_epochs=10,  # Saves every 10 epochs
         checkpoint_name="my_model"
     )
 ```
 
-#### 2. Checkpoint del Miglior Modello
-Salva solo il modello con la miglior validation loss:
+#### 2. Best Model Checkpointing
+Saves only the model with the best validation loss:
 
 ```python
     trainer = Trainer(
@@ -152,29 +152,29 @@ Salva solo il modello con la miglior validation loss:
     )
 ```
 
-#### 3. Checkpoint a Epoche Specifiche
-Salva a epoche specifiche:
+#### 3. Checkpointing at Specific Epochs
+Saves at specific epochs:
 
 ```python
     trainer = Trainer(
         ...,
         checkpoint_dir="checkpoints",
-        checkpoint_epochs=[10, 25, 50, 75],  # Salva a queste epoche
+        checkpoint_epochs=[10, 25, 50, 75],  # Saves at these epochs
         checkpoint_name="my_model"
     )
 ```
 
-## Metriche di Validazione
+## Validation Metrics
 
-Durante la validazione, il trainer calcola automaticamente:
+During validation, the trainer automatically calculates:
 
-- **Loss**: Valore della loss function
-- **Accuracy**: Proporzione di predizioni corrette
-- **Precision**: Proporzione di predizioni positive corrette
-- **Recall**: Proporzione di veri positivi identificati
-- **F1 Score**: Media armonica tra precision e recall
+- **Loss**: Loss function value
+- **Accuracy**: Proportion of correct predictions
+- **Precision**: Proportion of correct positive predictions
+- **Recall**: Proportion of true positives identified
+- **F1 Score**: Harmonic mean between precision and recall
 
-## Esempio di Utilizzo Completo
+## Complete Usage Example
 
 ```python
 import torch
@@ -187,7 +187,7 @@ model = MyModel()
 loss_fn = nn.CrossEntropyLoss()
 optimizer = torch.optim.Adam(model.parameters(), lr=0.001)
 
-# Creazione trainer con tutte le feature
+# Create trainer with all features
 trainer = Trainer(
     model=model,
     loss_fn=loss_fn,
@@ -204,13 +204,13 @@ trainer = Trainer(
 trained_model = trainer.fit(
     train_loader=train_dataloader,
     val_loader=val_dataloader,
-    val_epoch=5  # Valida ogni 5 epoche
+    val_epoch=5  # Validates every 5 epochs
 )
 
-# Predizione
+# Prediction
 predictions = trainer.predict(test_dataloader)
 
-# Ripresa da checkpoint
+# Resume from checkpoint
 start_epoch = trainer.load_checkpoint("./checkpoints/my_model_best.pt")
 trainer.fit(
     train_loader=train_dataloader,
@@ -219,28 +219,28 @@ trainer.fit(
 )
 ```
 
-## Stato Interno
+## Internal State
 
-La classe mantiene i seguenti stati durante il training:
+The class maintains the following states during training:
 
-- `_model`: Il modello PyTorch
-- `_device`: Dispositivo di computazione
-- `_best_loss`: La migliore validation loss vista finora
-- `_patience_counter`: Contatore di epoche senza miglioramento (per early stopping)
-- `_logger`: Logger per messaggi di sistema
+- `_model`: The PyTorch model
+- `_device`: Computing device
+- `_best_loss`: The best validation loss seen so far
+- `_patience_counter`: Counter of epochs without improvement (for early stopping)
+- `_logger`: Logger for system messages
 
-## Metodi Privati
+## Private Methods
 
-| Metodo | Descrizione |
+| Method | Description |
 |--------|-------------|
-| `_should_save_checkpoint(epoch)` | Determina se salvare un checkpoint a questa epoca |
-| `_save_checkpoint(epoch, loss, is_best)` | Salva un checkpoint su disco |
-| `_binary_predict(data_loader)` | Predizioni per problemi binari (2 classi) |
-| `_multiclass_predict(data_loader)` | Predizioni per problemi multiclassi (>2 classi) |
+| `_should_save_checkpoint(epoch)` | Determines if a checkpoint should be saved at this epoch |
+| `_save_checkpoint(epoch, loss, is_best)` | Saves a checkpoint to disk |
+| `_binary_predict(data_loader)` | Predictions for binary problems (2 classes) |
+| `_multiclass_predict(data_loader)` | Predictions for multiclass problems (>2 classes) |
 
-## Note Importanti
+## Important Notes
 
-1. Il modello viene automaticamente spostato sul dispositivo specificato durante l'inizializzazione
-2. La validation loss è utilizzata per determinare il miglior modello e per l'early stopping
-3. I checkpoint includono sia i pesi del modello che lo stato dell'ottimizzatore
-4. Il logger di sistema fornisce informazioni dettagliate su checkpoint e early stopping
+1. The model is automatically moved to the specified device during initialization
+2. Validation loss is used to determine the best model and for early stopping
+3. Checkpoints include both model weights and optimizer state
+4. The system logger provides detailed information about checkpointing and early stopping
