@@ -36,6 +36,8 @@ nav:
       - Telegram: user_guide/notifications/telegram.md
       - Email: user_guide/notifications/email.md
       - Slack: user_guide/notifications/slack.md
+    - Neural Networks:
+      - Trainer: user_guide/neural_networks/trainer.md
   - CLI:
     - Pull: CLI/pull.md
   - Contributing: contributing.md

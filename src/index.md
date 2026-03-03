@@ -15,3 +15,14 @@ In a typical ML project, developers often spend hours setting up logging directo
 * **Multi-Backend Monitoring**: Native integration with [Weights & Biases (W&B)](https://wandb.ai/) and [TensorBoard](https://www.tensorflow.org/tensorboard).
 * **Instant Notifications**: Get real-time alerts on **Discord** and **Telegram** when experiments start, finish, or crash.
 * **Template Ready**: Download and use reproducible experiment templates to jumpstart new projects.
+
+
+## Roadmap
+
+- **ML Templates:** Automated creation of standard project structures.
+- **Model Tools:** Utilities for Neural Network creation, training, and testing.
+- **Notifications:** Email notification system for completed training runs.
+- **Data Tools:** Data exploration and visualization helpers.
+- **Analysis:** Result analysis tools (diagrams, confusion matrices, etc.).
+- **Integrations:** Support for TensorBoard and similar tracking tools.
+- **Testing:** Comprehensive unit and integration tests for the framework.
