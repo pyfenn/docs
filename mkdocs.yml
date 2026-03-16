@@ -43,6 +43,7 @@ nav:
   - CLI:
     - Pull: CLI/pull.md
   - Contributing: contributing.md
+  - Code of Conduct: code_of_conduct.md
 
 markdown_extensions:
   - admonition
