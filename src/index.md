@@ -1,28 +1,53 @@
-Welcome to **fenn** (Friendly Environment for Neural Networks), a lightweight Python framework designed to strip away the repetitive boilerplate of Machine Learning development.
+# Fenn: Friendly Environment for Neural Networks
 
-**Stop writing boilerplate. Start training.**
+<p align="center"><img src="images/fenn.gif" alt="fenn preview" width="1000"></p>
 
-fenn is a lightweight Python framework that automates the **boring stuff** in Machine Learning projects so you can focus on the model. It handles configuration parsing, logging setup, and experiment tracking in a minimal, opinionated way.
+[![GitHub stars](https://img.shields.io/github/stars/blkdmr/fenn?style=social)](https://github.com/blkdmr/fenn/stargazers)
+[![GitHub forks](https://img.shields.io/github/forks/blkdmr/fenn?style=social)](https://github.com/blkdmr/fenn/forks)
+[![Codacy Badge](https://app.codacy.com/project/badge/Grade/261c40f69583462baa200aee959bcc8f)](https://app.codacy.com/gh/blkdmr/fenn/dashboard?utm_source=gh&utm_medium=referral&utm_content=&utm_campaign=Badge_grade)
+[![codecov](https://codecov.io/gh/pyfenn/fenn/graph/badge.svg?token=7RTTZ1SFMM)](https://codecov.io/gh/pyfenn/fenn)
+[![PyPI version](https://img.shields.io/pypi/v/fenn)](https://pypi.org/project/fenn/)
+[![License](https://img.shields.io/github/license/blkdmr/fenn)](https://github.com/blkdmr/fenn/blob/main/LICENSE)
+[![PyPI Downloads](https://img.shields.io/pypi/dm/fenn.svg?label=downloads&logo=pypi&color=blue)](https://pypi.org/project/fenn/)
+[![Discord Server](https://img.shields.io/badge/Discord-PyFenn-5865F2?logo=discord&logoColor=white)](https://discord.gg/WxDkvktBAa)
+[![Sponsor](https://img.shields.io/badge/sponsor-GitHub-pink)](https://github.com/sponsors/blkdmr)
+[![Netlify Status](https://api.netlify.com/api/v1/badges/e5b91aff-cc0e-4b90-becd-d783c3b043bd/deploy-status)](https://app.netlify.com/projects/pyfenn/deploys)
 
----
+Friendly Environment for Neural Networks (fenn) is a simple framework that automates ML/DL workflows by providing prebuilt trainers, templates, logging, configuration management, and much more. With fenn, you can focus on your model and data while it takes care of the rest.
+
+## Support fenn
+
+If fenn is useful for your work or research, consider supporting its development.
+
+You can support the project by **starring the repository** on [GitHub](https://github.com/pyfenn/fenn). It improves visibility and helps others discover fenn.
+
+Sponsorship also helps fund maintenance, improvements, and new features.  You can support the project [here](https://github.com/sponsors/blkdmr).
 
 ## Why fenn?
 
-In a typical ML project, developers often spend hours setting up logging directories, writing YAML parsers, and manually connecting experiment trackers. Fenn automates this entire lifecycle:
+- **Auto-Configuration**: YAML files are automatically parsed and injected into your entrypoint with CLI override support. No more hardcoded hyperparameters or scattered config logic.
 
-* **Auto-Configuration**: YAML files are automatically parsed and injected into your entrypoint. You get full parametrization support without writing a single line of `argparse`.
-* **Unified Logging**: All logs, print statements, and experiment metadata are captured to local files and remote backends simultaneously.
-* **Multi-Backend Monitoring**: Native integration with [Weights & Biases (W&B)](https://wandb.ai/) and [TensorBoard](https://www.tensorflow.org/tensorboard).
-* **Instant Notifications**: Get real-time alerts on **Discord** and **Telegram** when experiments start, finish, or crash.
-* **Template Ready**: Download and use reproducible experiment templates to jumpstart new projects.
+- **Unified Logging**: All logs, print statements, and experiment metadata are automatically captured to local files and remote tracking backends simultaneously with no manual setup required.
 
+- **Backend Monitoring**: Native integration with industry-standard trackers like [Weights & Biases](https://wandb.ai/) (W&B) for centralized experiment tracking and [TensorBoard](https://www.tensorflow.org/tensorboard) for real-time metric visualization
 
-## Roadmap
+- **Instant Notifications**: Get real-time alerts on **Discord** and **Telegram** when experiments start, complete, or fail—no polling or manual checks.
 
-- **ML Templates:** Automated creation of standard project structures.
-- **Model Tools:** Utilities for Neural Network creation, training, and testing.
-- **Notifications:** Email notification system for completed training runs.
-- **Data Tools:** Data exploration and visualization helpers.
-- **Analysis:** Result analysis tools (diagrams, confusion matrices, etc.).
-- **Integrations:** Support for TensorBoard and similar tracking tools.
-- **Testing:** Comprehensive unit and integration tests for the framework.
+- **Trainers**: Built-in support for training loops, validation, and testing with minimal boilerplate. Just define your model and data, and let fenn handle the rest.
+
+- **Template Ready**: Built-in support for reproducible, shareable experiment templates.
+
+## Maintainers
+
+The development and long-term direction of **fenn** is guided by the following maintainers:
+
+| Maintainer | Role |
+|------------|------|
+| [@blkdmr](https://github.com/blkdmr) | Creator & Project Administrator |
+| [@giuliaOddi](https://github.com/giuliaOddi) | Project Administrator |
+| [@GlowCheese](https://github.com/GlowCheese) | Core Maintainer |
+| [@franciscolima05](https://github.com/franciscolima05) | Core Maintainer |
+
+Maintainers oversee the project roadmap, review pull requests, coordinate releases, and ensure the long-term stability and quality of the framework.
+
+**Thank you for supporting the project.**
