@@ -1,3 +1,5 @@
+<script async src="https://scripts.simpleanalyticscdn.com/latest.js"></script>
+
 # Fenn: Friendly Environment for Neural Networks
 
 <p align="center"><img src="images/fenn.gif" alt="fenn preview" width="1000"></p>
