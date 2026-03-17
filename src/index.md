@@ -5,13 +5,11 @@
 [![GitHub stars](https://img.shields.io/github/stars/blkdmr/fenn?style=social)](https://github.com/blkdmr/fenn/stargazers)
 [![GitHub forks](https://img.shields.io/github/forks/blkdmr/fenn?style=social)](https://github.com/blkdmr/fenn/forks)
 [![Codacy Badge](https://app.codacy.com/project/badge/Grade/261c40f69583462baa200aee959bcc8f)](https://app.codacy.com/gh/blkdmr/fenn/dashboard?utm_source=gh&utm_medium=referral&utm_content=&utm_campaign=Badge_grade)
-[![codecov](https://codecov.io/gh/pyfenn/fenn/graph/badge.svg?token=7RTTZ1SFMM)](https://codecov.io/gh/pyfenn/fenn)
 [![PyPI version](https://img.shields.io/pypi/v/fenn)](https://pypi.org/project/fenn/)
 [![License](https://img.shields.io/github/license/blkdmr/fenn)](https://github.com/blkdmr/fenn/blob/main/LICENSE)
 [![PyPI Downloads](https://img.shields.io/pypi/dm/fenn.svg?label=downloads&logo=pypi&color=blue)](https://pypi.org/project/fenn/)
 [![Discord Server](https://img.shields.io/badge/Discord-PyFenn-5865F2?logo=discord&logoColor=white)](https://discord.gg/WxDkvktBAa)
 [![Sponsor](https://img.shields.io/badge/sponsor-GitHub-pink)](https://github.com/sponsors/blkdmr)
-[![Netlify Status](https://api.netlify.com/api/v1/badges/e5b91aff-cc0e-4b90-becd-d783c3b043bd/deploy-status)](https://app.netlify.com/projects/pyfenn/deploys)
 
 Friendly Environment for Neural Networks (fenn) is a simple framework that automates ML/DL workflows by providing prebuilt trainers, templates, logging, configuration management, and much more. With fenn, you can focus on your model and data while it takes care of the rest.
 
@@ -48,6 +46,8 @@ The development and long-term direction of **fenn** is guided by the following m
 | [@GlowCheese](https://github.com/GlowCheese) | Core Maintainer |
 | [@franciscolima05](https://github.com/franciscolima05) | Core Maintainer |
 
-Maintainers oversee the project roadmap, review pull requests, coordinate releases, and ensure the long-term stability and quality of the framework.
+Maintainers oversee the project roadmap, review pull requests, coordinate releases, and ensure the long-term stability and quality of the framework. **Thank you for supporting the project.**
 
-**Thank you for supporting the project.**
+<a href="https://www.netlify.com">
+  <img src="https://www.netlify.com/assets/badges/netlify-badge-light.svg" alt="Deploys by Netlify" />
+</a>
