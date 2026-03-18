@@ -18,18 +18,18 @@ fenn pull <template> [path] [--force]
 
 ### Basic Usage
 
-Download the `base` template into the current directory:
+Download the `empty` template into the current directory:
 
 ```bash
-fenn pull base
+fenn pull empty
 ```
 
 ### Specify Target Directory
 
-Download the `base` template into a specific directory:
+Download the `empty` template into a specific directory:
 
 ```bash
-fenn pull base ./my-project
+fenn pull empty ./my-project
 ```
 
 ### Overwrite Existing Files
@@ -37,5 +37,5 @@ fenn pull base ./my-project
 If the target directory already contains files, use the `--force` flag to overwrite them:
 
 ```bash
-fenn pull base ./existing-project --force
+fenn pull empty ./existing-project --force
 ```

@@ -1,6 +1,3 @@
-
-## Quickstart
-
 Install the fenn library using
 
 ```bash
@@ -84,8 +81,6 @@ app = Fenn()
 app.set_config_file("my_file.yaml")
 ```
 
-### Run It
-
 You can run your code as usual
 
 ```bash
@@ -96,7 +91,7 @@ and fenn will take care of the rest for you.
 
 ---
 
-## The Fenn Execution Lifecycle
+## Execution Lifecycle
 
 When you execute `app.run()`, Fenn manages the heavy lifting in the background to ensure your experiment is reproducible and organized:
 

@@ -1,33 +1,57 @@
 /* ---------- PALETTE ----------*/
 :root {
-  /* Primary color (header, sidebar, etc.) */
-  --md-primary-fg-color: #3c6e71;
-  --md-primary-fg-color--light: #3c6e71;
-  --md-primary-fg-color--dark: #3c6e71;
+  /* Header/sidebar background */
+  --md-primary-color: #353535;
 
-  /* Text/icons displayed on the primary color */
+  /* Text/icons on header/sidebar */
+  --md-primary-fg-color: #fff;
+  --md-primary-fg-color--light: #fff;
+  --md-primary-fg-color--dark: #fff;
+
+  /* Background/text pairing helpers */
   --md-primary-bg-color: #ffffff;
   --md-primary-bg-color--light: rgba(255, 255, 255, 0.7);
 
-  /* Accent color (interactive elements: hovered links, buttons, etc.) */
-  /* Change these to whatever accent you want */
-  --md-accent-fg-color: #284b63;
-  --md-accent-fg-color--transparent: rgba(45, 212, 191, 0.10);
-  --md-accent-bg-color: #ffffff;
+  /* Accent */
+  --md-accent-fg-color: #ff7f0e;
+  --md-accent-fg-color--transparent: rgba(255, 127, 14, 0.10);
+  --md-accent-bg-color: #ff7f0e;
   --md-accent-bg-color--light: rgba(255, 255, 255, 0.7);
+
+  /* Main content text */
+  --md-default-fg-color: #353535;
+  --md-default-fg-color--light: rgba(0, 0, 0, 0.87);
+  --md-default-fg-color--lighter: rgba(0, 0, 0, 0.54);
 }
 
-/* ---------- FOOTER (bg + text) ----------*/
+/* ---------- HEADER / NAV / SIDEBAR TEXT ----------*/
+.md-header,
+.md-tabs,
+.md-nav,
+.md-sidebar {
+  color: #353535;
+}
+
+.md-header a,
+.md-tabs a,
+.md-nav a,
+.md-sidebar a,
+.md-ellipsis,
+.md-nav__title,
+.md-nav__link,
+.md-tabs__link {
+  color: #353535 !important;
+}
+
+/* ---------- FOOTER ----------*/
 [data-md-color-scheme="default"] {
   --md-footer-bg-color: #353535;
   --md-footer-bg-color--dark: #353535;
-
   --md-footer-fg-color: #ffffff;
   --md-footer-fg-color--light: rgba(255, 255, 255, 0.75);
   --md-footer-fg-color--lighter: rgba(255, 255, 255, 0.45);
 }
 
-/* Optional: footer links */
 .md-footer a {
   color: var(--md-accent-fg-color);
 }
@@ -40,25 +64,31 @@
 
 .md-header__button.md-logo img,
 .md-header__button.md-logo svg {
-  height: 2.2rem;  /* adjust */
-  width: 2.2rem;   /* adjust */
+  height: auto;
+  width: 3rem;
+}
+
+.md-content a {
+  color: #ff7f0e;
+}
+
+
+.md-content a:hover {
+  color: #ec7206;
 }
 
 /* ----- Top header ---------*/
 .md-header__inner {
-  padding-top: 0.5rem; /* adjust */
+  padding-top: 0.5rem;
   padding-bottom: 0.5rem;
 }
 
 /*------------- Bottom spacing -----------------*/
-
-/* This targets the main container of the markdown content */
 article.md-content__inner {
   margin-bottom: 2rem !important;
   padding-bottom: 2rem !important;
 }
 
-/* Optional: If you want space AFTER the "Next/Previous" buttons too */
 .md-footer-nav {
   margin-bottom: 3rem;
 }

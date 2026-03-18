@@ -1,4 +1,4 @@
-site_name: fenn
+site_name: Fenn Documentation
 site_url: https://pyfenn.org/
 site_description: FENN Friendly Environment for Neural Networks
 site_author: PyFenn
@@ -24,32 +24,33 @@ theme:
     accent: custom
 
 nav:
-  - Home: index.md
-  - Quickstart: quickstart.md
+  - Homepage: index.md
+  - Quickstart: content/quickstart.md
   - User Guide:
     - Logging:
-      - Local: user_guide/logging/local.md
-      - Wandb: user_guide/logging/wandb.md
+      - Local: content/user_guide/logging/local.md
+      - Wandb: content/user_guide/logging/wandb.md
     - Notifications:
-      - Basic Usage: user_guide/notifications/basic_usage.md
-      - Discord: user_guide/notifications/discord.md
-      - Telegram: user_guide/notifications/telegram.md
-      - Email: user_guide/notifications/email.md
-      - Slack: user_guide/notifications/slack.md
+      - Basic Usage: content/user_guide/notifications/basic_usage.md
+      - Discord: content/user_guide/notifications/discord.md
+      - Telegram: content/user_guide/notifications/telegram.md
+      - Email: content/user_guide/notifications/email.md
+      - Slack: content/user_guide/notifications/slack.md
     - Neural Networks:
       - Trainers:
-        - Overview: user_guide/neural_networks/trainers/index.md
-        - Base Trainer: user_guide/neural_networks/trainers/base_trainer.md
-        - Classification: user_guide/neural_networks/trainers/classification_trainer.md
-        - Regression: user_guide/neural_networks/trainers/regression_trainer.md
-        - Checkpointing: user_guide/neural_networks/trainers/checkpoint_management.md
-        - Advanced Features: user_guide/neural_networks/trainers/features.md
+        - Overview: content/user_guide/neural_networks/trainers/index.md
+        - Base Trainer: content/user_guide/neural_networks/trainers/base_trainer.md
+        - Classification: content/user_guide/neural_networks/trainers/classification_trainer.md
+        - Regression: content/user_guide/neural_networks/trainers/regression_trainer.md
+        - Checkpointing: content/user_guide/neural_networks/trainers/checkpoint_management.md
+        - Advanced Features: content/user_guide/neural_networks/trainers/features.md
     - Data Processing:
-      - Tabular: user_guide/data_processing/tabular.md
+      - Tabular: content/user_guide/data_processing/tabular.md
   - CLI:
-    - Pull: CLI/pull.md
-  - Contributing: contributing.md
-  - Code of Conduct: code_of_conduct.md
+    - Pull: content/cli/pull.md
+  - Community:
+    - Contributing: content/community/contributing.md
+    - Code of Conduct: content/community/code_of_conduct.md
 
 markdown_extensions:
   - admonition
