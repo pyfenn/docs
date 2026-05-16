@@ -1,3 +1,5 @@
+# Quickstart
+
 Install the fenn library using
 
 ```bash
@@ -12,19 +14,52 @@ uv pip install fenn
 
 ### Initialize a Project
 
-Run the CLI tool to see which repositories are available and to download a template together with its configuration file. First, list the available repositories:
+Use the CLI to discover and download a project template.
+
+#### 1. List available templates
 
 ```bash
 fenn list
-````
-
-Then, download one of the available templates (here `empty` is just an example):
-
-```bash
-fenn pull empty
 ```
 
-This command downloads the selected template into the current directory and generates the corresponding configuration file, which can be customized before running or extending the project.
+This fetches the directory listing from [`pyfenn/templates`](https://github.com/pyfenn/templates) and prints the templates you can use.
+
+#### 2. Pull a template
+
+```bash
+fenn pull <template> [path]
+```
+
+Examples:
+
+```bash
+fenn pull empty            # pull into the current directory
+fenn pull empty ./my-proj  # pull into ./my-proj (created if missing)
+```
+
+Each template ships at least a `main.py` entrypoint and a `fenn.yaml` configuration file in the target directory. Most templates also include a `README.md`, a `requirements.txt`, and a `modules/` directory with example model and dataset code.
+
+To avoid clobbering work, `fenn pull` refuses to write into a non-empty target directory. Pass `--force` to overwrite existing files:
+
+```bash
+fenn pull empty --force
+```
+
+Hidden entries (those starting with `.`, such as `.git`) do not count as "non-empty".
+
+#### 3. Customize and run
+
+Open the generated `fenn.yaml` and adjust hyperparameters, paths, logging, and integrations for your project (see [Configuration](#configuration) below). Then run the entrypoint:
+
+```bash
+python main.py
+```
+
+#### Common issues
+
+- **`Template <name> not found`** — The template name doesn't match a directory in [`pyfenn/templates`](https://github.com/pyfenn/templates). Run `fenn list` to see valid names.
+- **`Refusing to pull into non-empty directory`** — Either pull into an empty directory, point `path` at a fresh one, or pass `--force` to overwrite.
+- **`Network error` / `Failed to check template existence`** — Check connectivity. The CLI uses the unauthenticated GitHub API to look up and download templates, which is subject to GitHub's rate limit.
 
 ### Configuration
 
@@ -45,6 +80,9 @@ project: empty
 
 logger:
   dir: logger
+
+export:
+  dir: exports
 
 # ---------------------------------------
 # Example of User Section
@@ -76,10 +114,14 @@ if __name__ == "__main__":
 
 By default, fenn will look for a configuration file named `fenn.yaml` in the current directory. If you would like to use a different name, a different location, or have multiple configuration files for different configurations, you can call `set_config_file()` and update the path or the name of your configuration file. You must assign the filename before calling `run()`.
 
+The optional `export.dir` setting centralizes where artifacts are written. Components that export files can use this shared directory instead of requiring an output path to be passed through every call.
+
 ```python
 app = Fenn()
 app.set_config_file("my_file.yaml")
 ```
+
+### Run It
 
 You can run your code as usual
 
@@ -89,19 +131,7 @@ python main.py
 
 and fenn will take care of the rest for you.
 
----
-
-## Execution Lifecycle
-
-When you execute `app.run()`, Fenn manages the heavy lifting in the background to ensure your experiment is reproducible and organized:
-
-1. **Config Selection**: It identifies the target YAML file (either `fenn.yaml` or the file specified via `set_config_file`).
-2. **Environment Setup**: It automatically creates your logging directory and begins capturing all console output to a timestamped file.
-3. **Dependency Injection**: It starts your `main()` function, passing the configuration data directly into the `args` parameter.
-
----
-
-## Training Models
+### Training Models
 
 Use built-in trainers to handle your training loops with minimal boilerplate.
 
