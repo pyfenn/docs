@@ -1,11 +1,10 @@
-site_name: Fenn Documentation
+site_name: Documentation
 site_url: https://pyfenn.org/
 site_description: FENN Friendly Environment for Neural Networks
 site_author: PyFenn
 docs_dir: src
 
 theme:
-  logo: images/logo.png
   favicon: images/logo.png
   name: material
   custom_dir: overrides
@@ -16,7 +15,12 @@ theme:
     - navigation.top
     - search.suggest
     - content.code.copy
-    - toc.integrate   # right-hand in-page TOC
+    - toc.integrate
+    - content.code.annotate
+
+  font:
+    text: DM Sans
+    code: IBM Plex Mono
 
   palette:
     scheme: default
@@ -54,9 +58,12 @@ nav:
 
 markdown_extensions:
   - admonition
+  - attr_list
+  - md_in_html
   - toc:
       permalink: true
-  - pymdownx.highlight
+  - pymdownx.highlight:
+      anchor_linenums: true
   - pymdownx.superfences
   - pymdownx.tabbed:
       alternate_style: true

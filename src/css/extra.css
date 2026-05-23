@@ -1,89 +1,315 @@
-/* ---------- PALETTE ----------*/
+@import url('https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@400;600;700;800&display=swap');
+
+/* ── Custom color tokens ──────────────────────────────────── */
 :root {
-  /* Header/sidebar background */
-  --md-primary-color: #353535;
+  --fenn-dark:        #161b22;   /* landing-page surface — header/footer */
+  --fenn-darkest:     #0d1117;   /* landing-page base */
+  --fenn-border:      #30363d;   /* landing-page border (used on dark surfaces) */
+  --fenn-border-lt:   #d0d7de;   /* light border for content area */
+  --fenn-accent:      #00c896;   /* landing-page teal */
+  --fenn-accent-dim:  rgba(0, 200, 150, 0.12);
+  --fenn-text-muted:  #8b949e;
 
-  /* Text/icons on header/sidebar */
-  --md-primary-fg-color: #fff;
-  --md-primary-fg-color--light: #fff;
-  --md-primary-fg-color--dark: #fff;
+  /* Material primary — controls header bg & mobile drawer */
+  --md-primary-fg-color:        #24292f;
+  --md-primary-fg-color--light: rgba(36, 41, 47, 0.54);
+  --md-primary-fg-color--dark:  #1c2128;
+  --md-primary-bg-color:        #f0f6fc;
+  --md-primary-bg-color--light: rgba(240, 246, 252, 0.7);
 
-  /* Background/text pairing helpers */
-  --md-primary-bg-color: #ffffff;
-  --md-primary-bg-color--light: rgba(255, 255, 255, 0.7);
+  /* Material accent */
+  --md-accent-fg-color:              #00c896;
+  --md-accent-fg-color--transparent: rgba(0, 200, 150, 0.12);
+  --md-accent-bg-color:              #00c896;
+  --md-accent-bg-color--light:       rgba(0, 200, 150, 0.12);
 
-  /* Accent */
-  --md-accent-fg-color: #ff7f0e;
-  --md-accent-fg-color--transparent: rgba(255, 127, 14, 0.10);
-  --md-accent-bg-color: #ff7f0e;
-  --md-accent-bg-color--light: rgba(255, 255, 255, 0.7);
-
-  /* Main content text */
-  --md-default-fg-color: #353535;
-  --md-default-fg-color--light: rgba(0, 0, 0, 0.87);
-  --md-default-fg-color--lighter: rgba(0, 0, 0, 0.54);
+  /* Links in content */
+  --md-typeset-a-color: #00c896;
 }
 
-/* ---------- HEADER / NAV / SIDEBAR TEXT ----------*/
-.md-header,
-.md-tabs,
-.md-nav,
-.md-sidebar {
-  color: #353535;
+/* ── Header ───────────────────────────────────────────────── */
+.md-header {
+  background-color: #24292f;
+  box-shadow: none;
+  border-bottom: 1px solid #444c56;
 }
 
-.md-header a,
-.md-tabs a,
-.md-nav a,
-.md-sidebar a,
-.md-ellipsis,
-.md-nav__title,
-.md-nav__link,
+.md-header__title {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 1rem;
+  font-weight: 500;
+  color: #f0f6fc;
+}
+
+.md-header__button {
+  color: #adbac7;
+}
+.md-header__button:hover {
+  color: #f0f6fc;
+}
+
+/* ── Logo ─────────────────────────────────────────────────── */
+.md-header__button.md-logo,
+.md-nav__title .md-logo,
+.md-nav__title .md-nav__button.md-logo {
+  display: none !important;
+}
+
+/* ── Nav tabs ─────────────────────────────────────────────── */
+.md-tabs {
+  background-color: #1c2128;
+  border-bottom: 1px solid #30363d;
+}
+
 .md-tabs__link {
-  color: #353535 !important;
+  color: #adbac7 !important;
+  opacity: 1;
+  font-size: 0.85rem;
+}
+.md-tabs__link--active,
+.md-tabs__link:hover {
+  color: #f0f6fc !important;
+}
+.md-tabs__link--active {
+  border-bottom: 2px solid var(--fenn-accent);
 }
 
-/* ---------- FOOTER ----------*/
+/* ── Sidebar ──────────────────────────────────────────────── */
+.md-nav__title {
+  color: #6e7781;
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.md-nav__link {
+  color: #57606a;
+}
+.md-nav__link:hover {
+  color: #1f2328;
+}
+.md-nav__link--active,
+.md-nav__item--active > .md-nav__link {
+  color: var(--fenn-accent) !important;
+  font-weight: 500;
+}
+
+/* ── Search ───────────────────────────────────────────────── */
+.md-search__form {
+  background-color: rgba(230, 237, 243, 0.1);
+  border: 1px solid rgba(230, 237, 243, 0.15);
+  border-radius: 6px;
+}
+.md-search__form:focus-within {
+  background-color: #ffffff;
+  border-color: var(--fenn-accent);
+  box-shadow: 0 0 0 3px var(--fenn-accent-dim);
+}
+.md-search__input {
+  color: #1f2328;
+}
+.md-search__input::placeholder {
+  color: #8b949e;
+}
+
+/* ── Typography ───────────────────────────────────────────── */
+.md-typeset h1,
+.md-typeset h2,
+.md-typeset h3,
+.md-typeset h4 {
+  font-family: 'Bricolage Grotesque', 'DM Sans', sans-serif;
+  letter-spacing: -0.02em;
+  color: #1f2328;
+}
+
+.md-typeset h1 {
+  font-weight: 800;
+  font-size: 2rem;
+  line-height: 1.15;
+}
+
+.md-typeset h2 {
+  font-weight: 700;
+}
+
+.md-typeset h3 {
+  font-weight: 600;
+}
+
+.md-typeset a {
+  color: var(--fenn-accent);
+  text-decoration: none;
+  transition: opacity 0.15s;
+}
+.md-typeset a:hover {
+  opacity: 0.75;
+  color: var(--fenn-accent);
+}
+
+/* ── Code ─────────────────────────────────────────────────── */
+
+/* inline code */
+.md-typeset code {
+  background-color: #f6f8fa;
+  border: 1px solid var(--fenn-border-lt);
+  border-radius: 4px;
+  color: #1f2328;
+  font-size: 0.82em;
+  padding: 0.1em 0.4em;
+}
+
+/* fenced block: the wrapper carries the visual chrome */
+.md-typeset .highlight {
+  background-color: #f6f8fa;
+  border: 1px solid var(--fenn-border-lt);
+  border-radius: 8px;
+  overflow: hidden;
+  margin: 1em 0;
+}
+
+/* the pre carries the actual padding so code never touches the borders */
+.md-typeset .highlight > pre,
+.md-typeset .highlighttable .highlight > pre {
+  background: transparent;
+  border: none;
+  border-radius: 0;
+  margin: 0;
+  padding: 0.85rem 1.1rem;
+}
+
+.md-typeset .highlight code {
+  background: transparent;
+  border: none;
+  padding: 0;
+  font-size: 0.85em;
+}
+
+/* copy button — keep it on-theme */
+.md-clipboard {
+  color: #8b949e;
+}
+.md-clipboard:hover {
+  color: var(--fenn-accent);
+}
+
+/* standalone pre (no .highlight wrapper) */
+.md-typeset > pre {
+  background-color: #f6f8fa;
+  border: 1px solid var(--fenn-border-lt);
+  border-radius: 8px;
+  overflow: hidden;
+  padding: 0.85rem 1.1rem;
+}
+
+/* ── Tables ───────────────────────────────────────────────── */
+.md-typeset table:not([class]) {
+  border: 1px solid var(--fenn-border-lt);
+  border-radius: 8px;
+  overflow: hidden;
+}
+.md-typeset table:not([class]) th {
+  background-color: #f6f8fa;
+  color: #1f2328;
+  font-family: 'Bricolage Grotesque', sans-serif;
+  font-weight: 600;
+  border-color: var(--fenn-border-lt);
+}
+.md-typeset table:not([class]) td {
+  border-color: var(--fenn-border-lt);
+}
+.md-typeset table:not([class]) tr:hover {
+  background-color: rgba(0, 200, 150, 0.04);
+}
+
+/* ── Admonitions ──────────────────────────────────────────── */
+.md-typeset .admonition,
+.md-typeset details {
+  border-left-color: var(--fenn-accent);
+  border-radius: 0 8px 8px 0;
+}
+.md-typeset .admonition-title,
+.md-typeset summary {
+  background-color: var(--fenn-accent-dim);
+  color: #1f2328;
+  font-weight: 600;
+}
+.md-typeset .admonition-title::before,
+.md-typeset summary::before {
+  color: var(--fenn-accent);
+}
+
+/* ── TOC (right sidebar) ──────────────────────────────────── */
+.md-nav--secondary .md-nav__link {
+  font-size: 0.8rem;
+}
+.md-nav--secondary .md-nav__link--active {
+  color: var(--fenn-accent) !important;
+}
+
+/* ── Footer ───────────────────────────────────────────────── */
 [data-md-color-scheme="default"] {
-  --md-footer-bg-color: #353535;
-  --md-footer-bg-color--dark: #353535;
-  --md-footer-fg-color: #ffffff;
-  --md-footer-fg-color--light: rgba(255, 255, 255, 0.75);
-  --md-footer-fg-color--lighter: rgba(255, 255, 255, 0.45);
+  --md-footer-bg-color:        var(--fenn-darkest);
+  --md-footer-bg-color--dark:  var(--fenn-darkest);
+  --md-footer-fg-color:        #e6edf3;
+  --md-footer-fg-color--light: #8b949e;
+  --md-footer-fg-color--lighter: #484f58;
+}
+
+.md-footer {
+  border-top: 1px solid var(--fenn-border);
 }
 
 .md-footer a {
-  color: var(--md-accent-fg-color);
+  color: var(--fenn-accent);
 }
 
-/* ----- Logo ---------*/
-.md-header__button.md-logo {
-  padding: 0;
-  margin: 0;
+/* ── Buttons ──────────────────────────────────────────────── */
+.md-typeset .md-button {
+  border-radius: 6px;
+  font-weight: 500;
+  transition: background-color 0.15s, color 0.15s, border-color 0.15s;
 }
 
-.md-header__button.md-logo img,
-.md-header__button.md-logo svg {
-  height: auto;
-  width: 3rem;
+/* outline / secondary */
+.md-typeset .md-button:not(.md-button--primary) {
+  background-color: transparent;
+  border-color: var(--fenn-border-lt);
+  color: #1f2328;
+}
+.md-typeset .md-button:not(.md-button--primary):hover,
+.md-typeset .md-button:not(.md-button--primary):focus {
+  background-color: transparent;
+  border-color: var(--fenn-accent);
+  color: var(--fenn-accent);
 }
 
-.md-content a {
-  color: #ff7f0e;
+/* filled / primary */
+.md-typeset .md-button--primary {
+  background-color: var(--fenn-accent);
+  border-color: var(--fenn-accent);
+  color: #0d1117;
+}
+.md-typeset .md-button--primary:hover,
+.md-typeset .md-button--primary:focus {
+  background-color: #00a87e;
+  border-color: #00a87e;
+  color: #0d1117;
 }
 
-
-.md-content a:hover {
-  color: #ec7206;
-}
-
-/* ----- Top header ---------*/
+/* ── Content layout ───────────────────────────────────────── */
 .md-header__inner {
   padding-top: 0.5rem;
   padding-bottom: 0.5rem;
 }
 
-/*------------- Bottom spacing -----------------*/
+/* center the article column — toc.integrate removes the right sidebar,
+   so without a cap the content sprawls across the freed space */
+.md-content {
+  max-width: 56rem;
+  margin: 0 auto;
+}
+
 article.md-content__inner {
   margin-bottom: 2rem !important;
   padding-bottom: 2rem !important;
