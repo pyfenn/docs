@@ -5,7 +5,7 @@ site_author: PyFenn
 docs_dir: src
 
 theme:
-  favicon: images/logo.png
+  favicon: images/logo.svg
   name: material
   custom_dir: overrides
   language: en

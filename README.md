@@ -1,7 +1,5 @@
 # Fenn: Friendly Environment for Neural Networks
 
-<p align="center"><img src="banner.png" alt="fenn logo" width="1000"></p>
-
 <div align="center">
 
 
