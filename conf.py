@@ -1,26 +1,40 @@
 import os
 import sys
-# 1. Path Setup: Tell Sphinx to look at the repo root for the fenn code folder
-sys.path.insert(0, os.path.abspath('..')) 
+
+
+_parent = os.path.abspath('..')
+if os.path.exists(os.path.join(_parent, 'fenn', '__init__.py')):
+    sys.path.insert(0, _parent)
 
 # -- Project information -----------------------------------------------------
-
 project = "fenn"
-copyright = "2026, pyfenn"  # Adjust year/author as preferred by the maintainer
+copyright = "2026, pyfenn"
 author = "pyfenn"
 master_doc = "index"
 
 # -- General configuration ---------------------------------------------------
-
 extensions = [
-    "sphinx.ext.autodoc",      # Core extension to extract code docstrings
-    "sphinx.ext.napoleon",     # Essential for parsing Fenn's Google-style docstrings
-    "sphinx.ext.viewcode",     # Adds "[source]" links to view Python files directly
-    "sphinx_copybutton",       
-    "sphinx_design",           
+    "sphinx.ext.autodoc",
+    "sphinx.ext.napoleon",
+    "sphinx.ext.viewcode",
+    "sphinx_copybutton",
+    "sphinx_design",
+    "myst_parser",        # Allows Sphinx to read existing MkDocs .md files
 ]
 
-# Type hints configuration (borrowed from Dishka for cleaner code reading)
+# MyST Parser settings — enable all common extensions
+myst_enable_extensions = [
+    "colon_fence",
+    "deflist",
+    "tasklist",
+]
+
+# Tell Sphinx to look in src/ for the existing MkDocs markdown content
+source_suffix = {
+    ".rst": "restructuredtext",
+    ".md": "markdown",
+}
+
 autodoc_typehints = "description"
 autodoc_type_aliases = {}
 
@@ -29,24 +43,19 @@ exclude_patterns = ["_build", "Thumbs.db", ".DS_Store"]
 
 # -- Options for HTML output -------------------------------------------------
 html_theme = "furo"
-
 html_title = "Fenn Documentation"
-html_logo = "_static/logo.png"       
-html_favicon = "_static/favicon.ico" 
+html_logo = "_static/logo.png"
+html_favicon = "_static/favicon.ico"
 html_theme_options = {
     "source_repository": "https://github.com/pyfenn/fenn",
     "source_branch": "main",
     "source_directory": "docs/",
-    # Light mode theme adjustments
     "light_css_variables": {
-        # A slightly deeper teal-green for legible contrast on a white background
-        "color-brand-primary": "#00A86B",  
-        "color-brand-content": "#00A86B",  
+        "color-brand-primary": "#00A86B",
+        "color-brand-content": "#00A86B",
     },
-    # Dark mode theme adjustments
     "dark_css_variables": {
-        # That brilliant electric mint green straight from your Fenn banner!
-        "color-brand-primary": "#00C887",  
-        "color-brand-content": "#00C887",  
+        "color-brand-primary": "#00C887",
+        "color-brand-content": "#00C887",
     },
 }
