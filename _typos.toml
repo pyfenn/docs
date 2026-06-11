@@ -1,0 +1,16 @@
+[files]
+extend-exclude = [
+    "/overrides",
+    "/src/css",
+    "/src/images",
+    "requirements.txt",
+    "runtime.txt",
+    "mkdocs.yml",
+    "LICENSE"
+]
+
+[default.extend-words]
+# <typo> = "<correction>"
+
+[default.extend-identifiers]
+# <typo> = "<correction>"
