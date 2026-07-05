@@ -153,22 +153,3 @@ Sponsorship funds maintenance, improvements, and new features
 [Become a sponsor](https://github.com/sponsors/blkdmr){ .md-button .md-button--primary }
 
 Join the community on [Discord](https://discord.com/invite/6v9xtJxvN7) to discuss ideas, ask questions, and get started.
-
----
-
-## Cite Fenn
-
-If you use **fenn** in your work or research, please cite the project as:
-
-```bibtex
-@software{fenn,
-  author       = {Alessio Russo},
-  title        = {pyfenn/fenn: Release v0.2.0},
-  month        = may,
-  year         = 2026,
-  publisher    = {Zenodo},
-  version      = {v0.2.0},
-  doi          = {10.5281/zenodo.20178660},
-  url          = {https://doi.org/10.5281/zenodo.20178660},
-}
-```
