@@ -46,6 +46,10 @@ Get notified the moment your run finishes, fails, or hits a new best metric. Rea
 
 Classification, regression, segmentation — Fenn ships battle-tested trainer loops so you can focus on architecture and data, not training boilerplate.
 
+### Live Dashboard
+
+A local web dashboard for your runs. Browse experiment sessions as they happen, filter and rename them to keep things organized, see every template you've pulled, and launch any of them straight from the browser.
+
 ### Reproducible Templates
 
 Start any new project from a versioned, opinionated template. Seeds, environments, and artifact paths are locked in from the first commit.

@@ -131,6 +131,17 @@ python main.py
 
 and fenn will take care of the rest for you.
 
+### Dashboard
+
+Start the local dashboard with:
+
+```bash
+fenn dashboard
+```
+
+From there you can browse, filter, and rename your experiment sessions, see every template you've pulled, and launch any of them with one click — you'll be taken straight to its live session view.
+
+
 ### Training Models
 
 Use built-in trainers to handle your training loops with minimal boilerplate.

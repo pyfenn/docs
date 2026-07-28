@@ -31,6 +31,10 @@ nav:
   - Homepage: index.md
   - Quickstart: content/quickstart.md
   - User Guide:
+    - Dashboard:
+      - Overview: content/user_guide/dashboard/index.md
+      - Sessions: content/user_guide/dashboard/sessions.md
+      - Templates: content/user_guide/dashboard/templates.md
     - Logging:
       - Local: content/user_guide/logging/local.md
       - Wandb: content/user_guide/logging/wandb.md
