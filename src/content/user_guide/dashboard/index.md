@@ -10,7 +10,7 @@ fenn dashboard
 
 By default this starts a server at `http://127.0.0.1:5000`. The dashboard only ever binds to `127.0.0.1` - it serves your local logs and is not meant to be exposed on your network.
 
-### Options
+## Options
 
 | Flag | Description |
 |---|---|
