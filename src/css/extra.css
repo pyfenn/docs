@@ -318,3 +318,9 @@ article.md-content__inner {
 .md-footer-nav {
   margin-bottom: 3rem;
 }
+
+/* ── Tabbed Content ───────────────────────────────────────── */
+
+.md-typeset .tabbed-content {
+  padding-top: 1.5rem;
+}
