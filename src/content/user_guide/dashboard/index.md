@@ -37,6 +37,7 @@ Once you've signed in, your session is cached locally so future launches of `fen
 | **Overview** (`/`) | All projects with logged sessions, at a glance |
 | **Project** (`/project/<name>`) | All sessions for a single project |
 | **Session** (`/session/<project>/<id>`) | Full detail for one session - logs, metadata, status |
+| **Metric Detail** (`/session/<project>/<id>/metric/<name>`) | Full-size chart for a single metric, reached via "View details" on the session's Graphs tab |
 | **Templates** (`/templates`) | Templates you've pulled locally, with the option to launch them - see [Managing Templates](templates.md) |
 
 For details on filtering, renaming, and archiving sessions, see [Managing Sessions](sessions.md).
