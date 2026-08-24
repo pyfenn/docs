@@ -120,3 +120,11 @@
     - **Accuracy**
 
     Sessions without metric data simply display an empty state in the Graphs tab.
+
+    Each chart shows axis labels for the minimum and maximum values, and hovering over the line displays the exact step/value at that point.
+
+    ## Metric detail view
+
+    Click **View details** on any chart card to open a full-size view of that metric at `/session/<project>/<id>/metric/<name>`. The detail view shows only that metric's data and animates the line in when the page loads.
+
+    If the session or metric doesn't exist, or the session has no data for that metric, the page returns a 404.
